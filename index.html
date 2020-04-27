@@ -206,8 +206,8 @@
       fh.WriteLine(data);
       fh.Close();
     }
-    var submit = document.getElementById("submit");
-    submit.onclick = function () {
+    var sign_up = document.getElementById("sign-up");
+    sign_up.onclick = function () {
       var email_text = document.getElementById("email").value;
       writeToFile(email_text);
     }
