@@ -49,10 +49,10 @@
           <form>
             <div class="form-row">
               <div class="col-12 col-md-9 mb-2 mb-md-0">
-                <input type="email" class="form-control form-control-lg" placeholder="Enter your email to receive our newsletter...">
+                <input id="email" type="email" class="form-control form-control-lg" placeholder="Enter your email to receive our newsletter...">
               </div>
               <div class="col-12 col-md-3">
-                <button type="submit" class="btn btn-block btn-lg btn-primary">Sign Up!</button>
+                <button id="sign-up" type="submit" class="btn btn-block btn-lg btn-primary">Sign Up!</button>
               </div>
             </div>
           </form>
@@ -199,9 +199,19 @@
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <script type="text/javascript">
-
-  </script>
+  <script> 
+    function writeToFile(data) {
+      var fso = new ActiveXObject("Scripting.FileSystemObject");
+      var fh = fso.OpenTextFile("emails.txt", 8, false, 0);
+      fh.WriteLine(data);
+      fh.Close();
+    }
+    var submit = document.getElementById("submit");
+    submit.onclick = function () {
+      var email_text = document.getElementById("email").value;
+      writeToFile(email_text);
+    }
+    </script> 
 
 </body>
 
